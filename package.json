@@ -1,0 +1,20 @@
+{
+  "name": "space-invaders",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify sketch.js > bundle.js",
+    "watch": "watchify sketch.js -o bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^13.0.1",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "watchify": "^3.7.0"
+  }
+}
