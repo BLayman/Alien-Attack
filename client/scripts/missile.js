@@ -1,4 +1,4 @@
-function Drop(x, y) {
+function Missile(x, y) {
   this.x = x;
   this.y = y;
   this.r = 7;
@@ -14,9 +14,9 @@ function Drop(x, y) {
 
   };
 
-  this.hits = function (flowerObj) {
-  var d = dist(this.x, this.y, flowerObj.x, flowerObj.y);
-if (d < this.r + flowerObj.r){
+  this.hits = function (alienObj) {
+  var d = dist(this.x, this.y, alienObj.x, alienObj.y);
+if (d < this.r + alienObj.r){
   return true;
 } else{
   return false;

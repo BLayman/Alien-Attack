@@ -1,4 +1,4 @@
-function Flower(x, y) {
+function Alien(x, y) {
   this.x = x;
   this.y = y;
   this.r = 12;

@@ -1,15 +1,9 @@
-/*var p5 = require('./libraries/p5');
-require("./p5.dom");
-var drop = require('./scripts/drop');
-var ship = require('./scripts/ship');
-var flower = require('./scripts/flower');
-*/
 var loopOn = true;
 var right;
 var ship;
 var loaded;
-var drops = [];
-var flowers = [];
+var missiles = [];
+var aliens = [];
 var oneInt;
 var twoInt;
 var threeInt;
@@ -25,11 +19,11 @@ function startOver() {
       loop();
   }
   stopAll();
-  flowers = [];
+  aliens = [];
   level = 2;
   ship.x = width/2;
   ship.y = height-40;
-  tenFlowers();
+  tenAliens();
   themeOne.play();
   oneInt = setInterval(playOne, 5200);
 }
@@ -82,8 +76,8 @@ reset.mousePressed(startOver);
 //make ship
 ship = new Ship();
 
-//make flowers
-tenFlowers();
+//make aliens
+tenAliens();
 
 }
 
@@ -100,15 +94,15 @@ function draw() {
     ship.move(-5);
 }
 
-dropLoop(drops,flowers);
+missileLoop(missiles,aliens);
 
-flowerLoop(flowers);
+alienLoop(aliens);
 
-deleteLoops(flowers,drops);
+deleteLoops(aliens,missiles);
 
-fail(ship,flowers);
+fail(ship,aliens);
 
-success(flowers);
+success(aliens);
 
 }
 
@@ -118,8 +112,8 @@ function keyPressed() {
   //fire water
     if (key === " " && loaded === true) {
       fire.play();
-      var drop = new Drop(ship.x, ship.y);
-      drops.push(drop);
+      var missile = new Missile(ship.x, ship.y);
+      missiles.push(missile);
       loaded = false;
       setTimeout(load,400);
 }

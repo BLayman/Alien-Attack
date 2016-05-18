@@ -1,18 +1,18 @@
 var level = 2;
 
-function tenFlowers() {
+function tenAliens() {
   for (var i = 0; i < 10; i++) {
-    flowers[i] = new Flower(i*45+12, 35);
+    aliens[i] = new Alien(i*45+12, 35);
   }
 }
 
-function twentyFlowers() {
+function twentyAliens() {
   for (var i = 10; i < 20; i++) {
-    flowers[i] = new Flower((i-10)*45+24, 70);
+    aliens[i] = new Alien((i-10)*45+24, 70);
   }
 }
 
-function thirtyFlowers(bool) {
+function thirtyAliens(bool) {
   clearInterval(oneInt);
 
   if (bool == true){
@@ -22,10 +22,10 @@ function thirtyFlowers(bool) {
   }
 
   for (var i = 20; i < 30; i++) {
-    flowers[i] = new Flower((i-20)*45+12, 105);
+    aliens[i] = new Alien((i-20)*45+12, 105);
   }
 }
-function fourtyFlowers(bool) {
+function fourtyAliens(bool) {
   if (bool == true){
     clearInterval(twoInt);
     themeTwo.stop();
@@ -34,7 +34,7 @@ function fourtyFlowers(bool) {
   }
 
   for (var i = 30; i < 40; i++) {
-    flowers[i] = new Flower((i-30)*45+24, 140);
+    aliens[i] = new Alien((i-30)*45+24, 140);
   }
 }
 
@@ -56,32 +56,32 @@ function nextLevel() {
 
  if (level === 2){
       level += 1;
-    tenFlowers();
-    twentyFlowers();
+    tenAliens();
+    twentyAliens();
   }
 
   else if (level === 3){
-    tenFlowers();
-    twentyFlowers();
-    thirtyFlowers(true);
+    tenAliens();
+    twentyAliens();
+    thirtyAliens(true);
     level += 1;
   }
 
   else if (level === 4){
-    tenFlowers();
-    twentyFlowers();
-    thirtyFlowers(false);
-    fourtyFlowers(true);
+    tenAliens();
+    twentyAliens();
+    thirtyAliens(false);
+    fourtyAliens(true);
     level += 1;
   }
 
   else if (level === 5){
-    tenFlowers();
-    twentyFlowers();
-    thirtyFlowers(false);
-    fourtyFlowers(false);
-    for (var i = 0; i < flowers.length; i++) {
-      flowers[i].xdir = 2.1;
+    tenAliens();
+    twentyAliens();
+    thirtyAliens(false);
+    fourtyAliens(false);
+    for (var i = 0; i < aliens.length; i++) {
+      aliens[i].xdir = 2.1;
     }
     level += 1;
   }
@@ -102,17 +102,17 @@ function nextLevel() {
 
 }
 
-function fail(ship,flowers){
-  for (var i = 0; i < flowers.length; i++) {
-var distance = dist(ship.x, ship.y, flowers[i].x, flowers[i].y);
-    if (distance < flowers[i].r || flowers[i].y > height){
-      flowers[i].gone();
+function fail(ship,aliens){
+  for (var i = 0; i < aliens.length; i++) {
+var distance = dist(ship.x, ship.y, aliens[i].x, aliens[i].y);
+    if (distance < aliens[i].r || aliens[i].y > height){
+      aliens[i].gone();
       gameOver();
     }
   }
 }
-function success(flowers) {
-  if(flowers.length === 0){
+function success(aliens) {
+  if(aliens.length === 0){
     nextLevel();
   }
 }
