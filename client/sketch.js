@@ -1,3 +1,4 @@
+// author: Brett Layman
 var loopOn = true;
 var right;
 var ship;
@@ -7,6 +8,7 @@ var aliens = [];
 var oneInt;
 var twoInt;
 var threeInt;
+
 
 function load () {
   loaded = true;
